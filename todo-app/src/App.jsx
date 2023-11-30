@@ -1,69 +1,77 @@
 import "./App.css";
-import { useEffect, useState } from "react";
-import { TodoList } from "./components/TodoList";
-import { TodoForm } from "./components/TodoForm";
+import { useState } from "react";
+import { Todos } from "./components/Todos";
+import { Header } from "./components/Header";
+
+const mockTodos = [
+  { id: crypto.randomUUID(), title: "hacer tareas", completed: false },
+  { id: crypto.randomUUID(), title: "hacer tareas", completed: false },
+  { id: crypto.randomUUID(), title: "hacer tareas", completed: false },
+  { id: crypto.randomUUID(), title: "hacer tareas", completed: false },
+];
 
 function App() {
-  const [query, setQuery] = useState("");
-  const [todos, setTodos] = useState([
-    { id: crypto.randomUUID(), text: "hacer tareas", completed: false },
-    { id: crypto.randomUUID(), text: "hacer tareas", completed: false },
-    { id: crypto.randomUUID(), text: "hacer tareas", completed: false },
-    { id: crypto.randomUUID(), text: "hacer tareas", completed: false },
-  ]);
+  const [todos, setTodos] = useState(mockTodos);
   const [error, setError] = useState(null); // null, undefined, 0, "", false
 
-  const handleCheck = (id) => {
+  const handleCheck = ({ id, completed }) => {
     setTodos((prevState) =>
       prevState.map((todo) => {
         if (todo.id === id) {
-          return { ...todo, completed: !todo.completed };
+          return {
+            ...todo,
+            completed,
+          };
         }
         return todo;
       })
     );
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (query === "") {
-      setError("can't be a create todo empty");
-      return;
-    }
-    // forma no controlada
-    // const { query } = Object.fromEntries(new FormData(event.target));
-    // console.log(query);
+  const handleAddTodo = ({ title }) => {
+    // if (query === "") {
+    //   setError("can't be a create todo empty");
+    //   return;
+    // }
     const newTodo = {
+      title,
       id: crypto.randomUUID(),
-      text: query,
       completed: false,
     };
     setTodos([...todos, newTodo]);
-    setQuery("");
   };
 
-  const handleChange = (event) => {
-    //forma controlada
-    //prevalidacion
-    const newQuery = event.target.value;
-    if (newQuery.startsWith(" ")) return;
-    setQuery(newQuery);
-  };
+  // const handleChange = (event) => {
+  //   //forma controlada
+  //   //prevalidacion
+  //   const newQuery = event.target.value;
+  //   if (newQuery.startsWith(" ")) return;
+  //   setQuery(newQuery);
+  // };
 
+  function handleUpdate(id, value) {
+    setTodos((prevState) =>
+      prevState.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, text: value };
+        }
+        return todo;
+      })
+    );
+  }
+
+  function handleDelete(id) {
+    setTodos((prevState) => prevState.filter((todo) => todo.id !== id));
+  }
   return (
     <>
-      <TodoForm
+      {/* <TodoForm
         query={query}
         handleSubmit={handleSubmit}
         handleChange={handleChange}
-      />
-      <ul>
-        {todos.map((todo) => {
-          return (
-            <TodoList key={todo.id} todo={todo} handleCheck={handleCheck} />
-          );
-        })}
-      </ul>
+      /> */}
+      <Header onAddTodo={handleAddTodo}/>
+      <Todos todos={todos} onDeleteTodo={handleDelete} onCheck={handleCheck} />
     </>
   );
 }

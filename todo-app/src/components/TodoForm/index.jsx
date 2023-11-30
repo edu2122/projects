@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 export function TodoForm({ query, handleSubmit, handleChange }) {
   return (
-    <form action="" onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <label htmlFor="">
         Todo
         <input
