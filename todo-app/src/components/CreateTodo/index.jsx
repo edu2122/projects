@@ -1,26 +1,27 @@
 import { useState } from "react";
 
 export function CreateTodo({ onAddTodo }) {
-  const [query, setQuery] = useState("");
+  const [title, setTitle] = useState("");
   const handleSubmit = (event) => {
     event.preventDefault();
-    // const newQuery = event.target[0].value;
     onAddTodo({
-      title: query,
+      title,
     });
-    setQuery("");
+    setTitle("");
+  };
+  const handleChange = (event) => {
+    const newTitle = event.target.value;
+    setTitle(newTitle);
   };
   return (
     <form onSubmit={handleSubmit}>
       <input
+        className="todo-input"
         type="text"
-        placeholder="todo"
-        value={query}
-        onChange={(event) => {
-          setQuery(event.target.value);
-        }}
+        placeholder="Type your todo here"
+        value={title}
+        onChange={handleChange}
       />
-      <button type="submit">Agregar</button>
     </form>
   );
 }

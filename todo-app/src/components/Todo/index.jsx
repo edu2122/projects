@@ -1,9 +1,7 @@
 export function Todo({ id, title, completed, onDeleteTodo, onCheck }) {
-  //   function handleSubmit(event) {
-  //     event.preventDefault();
-  //   }
   function onToggleCompleted(event) {
-    onCheck({ id, completed: event.target.checked });
+    const completed = event.target.checked;
+    onCheck({ id, completed });
   }
   return (
     <>
@@ -16,12 +14,17 @@ export function Todo({ id, title, completed, onDeleteTodo, onCheck }) {
       >
         {title}
       </label>
-      <input
-        type="checkbox"
-        checked={completed}
-        onChange={onToggleCompleted}
-      />
-      <button onClick={() => onDeleteTodo(id)}>Delete</button>
+      <div className="todo-tools">
+        <input
+          className="todo-checkbox"
+          type="checkbox"
+          checked={completed}
+          onChange={onToggleCompleted}
+        />
+        <button className="todo-delete" onClick={() => onDeleteTodo(id)}>
+          Delete
+        </button>
+      </div>
     </>
   );
 }
