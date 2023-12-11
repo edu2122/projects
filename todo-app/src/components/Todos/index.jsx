@@ -1,4 +1,6 @@
 import { Todo } from "../Todo";
+import "./style.css";
+
 export function Todos({ todos, onDeleteTodo, onCheck }) {
   // const [edit, setEdit] = useState(false);
   // const handleEdit = () => {

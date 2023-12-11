@@ -75,13 +75,11 @@ function App() {
   return (
     <>
       <Header onAddTodo={handleAddTodo} />
-      <main>
         <Todos
           todos={filteredTodos}
           onDeleteTodo={handleDelete}
           onCheck={handleCheck}
         />
-      </main>
       <Footer
         activeTodos={activeTodos}
         completeTodos={completeTodos}

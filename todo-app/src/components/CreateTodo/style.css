@@ -1,0 +1,12 @@
+.todo-input {
+  margin-bottom: 3rem;
+  width: 100%;
+  padding: 0.8rem 2rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--main-text);
+  border: 1px solid #bdc3c7;
+  border-radius: 15px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  outline: none;
+}

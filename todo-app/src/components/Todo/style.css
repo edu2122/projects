@@ -1,0 +1,49 @@
+.todo-label {
+  width: 80%;
+  height: auto;
+  word-break: break-all;
+}
+
+.todo-tools {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.todo-checkbox {
+  position: absolute;
+  z-index: 1000;
+  opacity: 0;
+  left: 5px;
+  cursor: pointer;
+}
+
+
+.todo-checkbox-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  fill: var(--secondary-color);
+}
+
+.todo-checkbox-icon:hover {
+  fill: var(--terciary-color);
+}
+
+.todo-delete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  background-clip: content-box;
+  box-sizing: content-box;
+  fill: var(--secondary-color);
+  cursor: pointer;
+}
+
+.todo-delete:hover {
+  fill: var(--terciary-color);
+}

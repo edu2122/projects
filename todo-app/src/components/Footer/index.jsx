@@ -1,18 +1,12 @@
 import { Filters } from "../Filters";
+import "./style.css";
 export function Footer({ activeTodos, completeTodos, onFilterChange }) {
   return (
-    <footer
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        padding: "1rem",
-      }}
-    >
-      <span>
+    <footer className="footer">
+      <span className="todo-active">
         <strong>{activeTodos} - pending tasks</strong>
       </span>
-      <span>
+      <span className="todo-completes">
         <strong>{completeTodos} - completed tasks</strong>
       </span>
       <Filters onFilterChange={onFilterChange} />

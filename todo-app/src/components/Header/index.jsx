@@ -1,4 +1,5 @@
 import { CreateTodo } from "../CreateTodo";
+import "./style.css";
 
 export function Header({ onAddTodo }) {
   return (

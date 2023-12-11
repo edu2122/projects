@@ -1,0 +1,22 @@
+.todo-filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  color: var(--primary-text);
+  padding: 0;
+  margin: 0;
+  gap: 0.5rem;
+}
+
+.filter a {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--primary-text);
+}
+
+.filter a:hover {
+  text-decoration: underline;
+  color: var(--secondary-color);
+}
