@@ -1,7 +1,7 @@
 import { Todo } from "../Todo";
 import "./style.css";
 
-export function Todos({ todos, onDeleteTodo, onCheck }) {
+export function Todos({ todos }) {
   // const [edit, setEdit] = useState(false);
   // const handleEdit = () => {
   //   setEdit(true);
@@ -36,8 +36,6 @@ export function Todos({ todos, onDeleteTodo, onCheck }) {
             id={todo.id}
             title={todo.title}
             completed={todo.completed}
-            onDeleteTodo={onDeleteTodo}
-            onCheck={onCheck}
           />
         </li>
       ))}

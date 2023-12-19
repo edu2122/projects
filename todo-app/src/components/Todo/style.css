@@ -4,6 +4,15 @@
   word-break: break-all;
 }
 
+.todo-label.completed {
+  color: var(--terciary-color);
+  text-decoration: line-through;
+}
+
+.todo-label.incomplete {
+  color: var(--secondary-color);
+}
+
 .todo-tools {
   position: relative;
   display: flex;
@@ -16,15 +25,26 @@
   position: absolute;
   z-index: 1000;
   opacity: 0;
-  left: 5px;
+  width: 24px;
+  height: 24px;
+  left: 0;
+  border-radius: 50%;
   cursor: pointer;
 }
-
 
 .todo-checkbox-icon {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  fill: var(--secondary-color);
+}
+
+.todo-checkbox-icon.completed {
+  fill: var(--terciary-color);
+}
+
+.todo-checkbox-icon.incomplete {
   fill: var(--secondary-color);
 }
 
@@ -38,8 +58,6 @@
   justify-content: center;
   border: none;
   background: transparent;
-  background-clip: content-box;
-  box-sizing: content-box;
   fill: var(--secondary-color);
   cursor: pointer;
 }

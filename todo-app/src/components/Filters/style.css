@@ -9,14 +9,27 @@
   gap: 0.5rem;
 }
 
-.filter a {
+.filters a {
   font-size: 1.2rem;
   font-weight: bold;
   text-decoration: none;
   color: var(--primary-text);
 }
 
-.filter a:hover {
-  text-decoration: underline;
+.filters a.selected {
+  border: 1.4px solid var(--secondary-text);
+  border-radius: 0.5rem;
+  padding: 0.2rem;
+  color: var(--secondary-color);
+}
+
+.filters a:focus{
+  box-shadow: 0 0 2px 2px var(--secondary-text);
+}
+
+.filters a:hover {
+  border: 1.2px solid var(--secondary-text);
+  border-radius: 0.5rem;
+  padding: 0.2rem;
   color: var(--secondary-color);
 }
