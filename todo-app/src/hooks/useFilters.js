@@ -12,6 +12,17 @@ export function useFilters() {
       return todo;
     });
   };
+
+  const handleFilterChange = (filter) => {
+    setFilterSelected(filter);
+    const params = new URLSearchParams(window.location.search);
+    params.set("filter", filter);
+    window.history.pushState(
+      {},
+      "",
+      `${window.location.pathname}?${params.toString()}`
+    );
+  };
   
   const active = (todos) =>
     todos.filter((todo) => todo.completed === false).length;
@@ -23,5 +34,6 @@ export function useFilters() {
     filtersTodos,
     active,
     completed,
+    handleFilterChange,
   };
 }

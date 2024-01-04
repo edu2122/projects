@@ -24,3 +24,14 @@
   text-align: left;
   gap: 0.5rem;
 }
+
+.clear-completed {
+  font-weight: bold;
+  padding: 4px 8px;
+  cursor: pointer;
+  color: var(--bg-primary);
+}
+
+.clear-completed:hover {
+  color: var(--secondary-text);
+}

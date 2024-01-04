@@ -3,15 +3,7 @@ import { useFilters } from "../../hooks/useFilters";
 import "./style.css";
 
 export function Filters() {
-  const { filterSelected, setFilterSelected } = useFilters();
-  const handleFilterChange = (filter) => {
-    setFilterSelected(prevState => {
-      if (prevState === filter) {
-        return prevState;
-      }
-      return filter;
-    });
-  };
+  const { filterSelected, handleFilterChange } = useFilters();
   const handleClick = ({ event, key }) => {
     event.preventDefault();
     handleFilterChange(key);

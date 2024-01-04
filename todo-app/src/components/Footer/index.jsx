@@ -1,19 +1,26 @@
 import { useFilters } from "../../hooks/useFilters";
+import { useTodos } from "../../hooks/useTodos";
 import { Filters } from "../Filters";
 import "./style.css";
-export function Footer({ todos }) {
+export function Footer() {
+  const { todos, handleClearCompleted: onClearCompleted } = useTodos();
   const { active, completed } = useFilters();
   const activeTodos = active(todos);
   const completeTodos = completed(todos);
   return (
     <footer className="footer">
       <div className="todo-actions">
-        <span className="todo-active">
-          <strong className="strong">{activeTodos} - pending</strong>
+        <span>
+          <strong className="strong">{activeTodos} pending</strong>
         </span>
-        <span className="todo-completes">
-          <strong className="strong">{completeTodos} - completed</strong>
+        <span>
+          <strong className="strong">{completeTodos} completed</strong>
         </span>
+        {completeTodos > 0 && (
+          <button className="clear-completed" onClick={onClearCompleted}>
+            Clear completed
+          </button>
+        )}
       </div>
       <Filters />
     </footer>

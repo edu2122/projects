@@ -3,20 +3,15 @@ import "./App.css";
 import { Todos } from "./components/Todos";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
-import { useFilters } from "./hooks/useFilters";
-import { useTodos } from "./hooks/useTodos";
+import { MagicMotion } from "react-magic-motion";
 
 function App() {
-  const { todos } = useTodos();
-  const { filtersTodos } = useFilters();
-  const filteredTodos = filtersTodos(todos);
-
   return (
-    <>
-      <Header />
-      <Todos todos={filteredTodos} />
-      <Footer todos={filteredTodos} />
-    </>
+    <MagicMotion>
+      <Header/>
+      <Todos key="exclude"/>
+      <Footer/>
+    </MagicMotion>
   );
 }
 

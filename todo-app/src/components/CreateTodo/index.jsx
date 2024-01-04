@@ -1,18 +1,20 @@
 import { useState } from "react";
 import "./style.css";
+import { useTodos } from "../../hooks/useTodos";
 
-export function CreateTodo({ onAddTodo }) {
-  const [title, setTitle] = useState("");
+export function CreateTodo() {
+  const { handleAddTodo: onAddTodo } = useTodos();
+  const [inputValue, setInputValue] = useState("");
   const handleSubmit = (event) => {
     event.preventDefault();
     onAddTodo({
-      title,
+      title: inputValue,
     });
-    setTitle("");
+    setInputValue("");
   };
   const handleChange = (event) => {
-    const newTitle = event.target.value;
-    setTitle(newTitle);
+    const newInputValue = event.target.value;
+    setInputValue(newInputValue);
   };
   return (
     <form onSubmit={handleSubmit}>
@@ -20,7 +22,7 @@ export function CreateTodo({ onAddTodo }) {
         className="todo-input"
         type="text"
         placeholder="Type your todo here"
-        value={title}
+        value={inputValue}
         onChange={handleChange}
       />
     </form>

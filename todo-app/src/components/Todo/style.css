@@ -65,3 +65,25 @@
 .todo-delete:hover {
   fill: var(--terciary-color);
 }
+
+.todo .todo-edit {
+  display: none;
+}
+
+.todo .todo-delete .todo.editing {
+  display: none;
+}
+
+.todo.editing .todo-edit {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 320px;
+  padding: 0.5rem 2rem;
+  border-radius: 15px;
+  background-color: var(--bg-secondary);
+  box-shadow: 0 0 1rem var(--secondary-text);
+  list-style: none;
+}
+
